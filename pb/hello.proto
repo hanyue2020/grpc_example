@@ -1,0 +1,13 @@
+// protoc --proto_path=pb/ pb/api.proto --go_out=api
+// protoc --proto_path=pb/ pb/api.proto --go-grpc_out=api
+
+syntax = "proto3";
+
+package api;
+option go_package = ".;api";
+
+message HelloRequest { string name = 1; }
+
+message HelloResponse { string data = 1; }
+
+service HelloService { rpc Hello(HelloRequest) returns (HelloResponse); }
